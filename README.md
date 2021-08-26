@@ -6,7 +6,7 @@ Before starting, you need the following:
 
 -   A MATLAB® Web App Server™ license. For more information, see [Configure MATLAB Web App Server Licensing on the Cloud](http://tinyurl.mathworks.com/8bfHUFTY). To configure a license for use on the cloud, you need the MAC address of the network license manager on the cloud. For more information, see [Get License Server MAC Address](#get-license-server-mac-address).
 
-    <mark> For UX testing, use the following license file:(inlcude link here) </mark>
+    <mark> For UX testing, use the following license file:(include link here) </mark>
 -   An Amazon Web Services™ (AWS) account with an IAM user identity.
 -   A Key Pair for your AWS account in the US East (N. Virginia), EU (Ireland) or Asia Pacific (Tokyo) region. For more information, see [Amazon EC2 Key Pairs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html).
 
@@ -24,7 +24,7 @@ For information about the architecture of this solution, see [Architecture and R
 
 The default MATLAB Web App Server deployment template deploys a network license manager to manage MATLAB Web App Server licenses. 
 
-The template for using an exisitng VPC for deployment provides an option to either deploy a network license manager or use a network license manager that has already been deployed. For details, see [How Do I Use An Existing VPC to Deploy MATLAB Web App Server?](#how-do-i-use-an-existing-vpc-to-deploy-matlab-web-app-server).
+The template for using an existing VPC for deployment provides an option to either deploy a network license manager or use a network license manager that has already been deployed. For details, see [How Do I Use An Existing VPC to Deploy MATLAB Web App Server?](#how-do-i-use-an-existing-vpc-to-deploy-matlab-web-app-server).
 
 # Prepare Your AWS Account
 1. If you do not have an AWS account, create one at https://aws.amazon.com by following the on-screen instructions.
@@ -56,7 +56,7 @@ Click the **Launch Stack** button to deploy resources on AWS. This will open the
     ||**Settings to Access to MATLAB Web App Server Home Page**||
     | **Use the Same IP Addresses to Access MATLAB Web App Server Apps Home Page**| Select, **Yes** or **No**. <ul><li>If you select **Yes**, the same IP address range specified above is configured to access the MATLAB Web App Server apps homepage.</li><li>If you select **No**, you must specify a new IP address range in the next field.</li></ul>
     | **IP Addresses Allowed to Access MATLAB Web App Server Apps Home Page** | Complete this field only if you selected "No" in the previous field. Specify the IP address range that can connect to MATLAB Web App Server. Specify the range in CIDR notation in the format IP Address/Mask. <p><em>*Example*</em>: `10.0.0.1/24`</p> |
-    | **ARN of SSL Certificate** | Specify the Amazon Resource Name (ARN) of the SSL certificate you uploaded to the AWS Ceritifcate Manager. The ARN facilitates connecting to the apps home page using an HTTPS connection.<p><em>*Example*</em>: <code>arn:aws:acm:us-east-1:012345678910:certificate/666abcd6-ab6c-6ab6-a666-a666666bcd66</code> </p><p>To retrieve an ARN:</p><ul><li>Type "Certificate Manager" in the search box at the top of the web page and hit Enter. This automatically takes you to the AWS Certificate Manager.</li><li>Expand the entry for the certificate you uploaded.</li><li>Copy the ARN from the "Details" section.</li></ul><p>For more information, see [Create Self-signed Certificate](/README.md#create-self-signed-certificate) and [Upload Self-signed Certificate to AWS Certificate Manager](/README.md#upload-self-signed-certificate-to-aws-certificate-manager).
+    | **ARN of SSL Certificate** | Specify the Amazon Resource Name (ARN) of the SSL certificate you uploaded to the AWS Certificate Manager. The ARN facilitates connecting to the apps home page using an HTTPS connection.<p><em>*Example*</em>: <code>arn:aws:acm:us-east-1:012345678910:certificate/666abcd6-ab6c-6ab6-a666-a666666bcd66</code> </p><p>To retrieve an ARN:</p><ul><li>Type "Certificate Manager" in the search box at the top of the web page and hit Enter. This automatically takes you to the AWS Certificate Manager.</li><li>Expand the entry for the certificate you uploaded.</li><li>Copy the ARN from the "Details" section.</li></ul><p>For more information, see [Create Self-signed Certificate](/README.md#create-self-signed-certificate) and [Upload Self-signed Certificate to AWS Certificate Manager](/README.md#upload-self-signed-certificate-to-aws-certificate-manager).
     ||**Settings for EC2 Instance Hosting MATLAB Web App Server**|
     | **EC2 Instance Type** | Choose the AWS EC2 instance type to use for the server. All AWS instance types are supported. For more information, see [Amazon EC2 Instance Types](https://aws.amazon.com/ec2/instance-types/). <p><em>*Example*</em>: `m5.xlarge`</p> |
     | **Operating System** | Choose between Windows (Windows Server) and Linux(Ubuntu).  |
@@ -79,7 +79,7 @@ Click the **Launch Stack** button to deploy resources on AWS. This will open the
 
 <mark> For UX testing: Click **Administration** > **Manage License** and upload the license file. </mark>
 
->Note: MATLAB Web App Server automatically starts after succesfully uploading a valid license file.
+>Note: MATLAB Web App Server automatically starts after successfully uploading a valid license file.
 
 ## Step 4. Open the MATLAB Web App Server Apps Home Page
 1. In the *Stack details* for your stack, click the **Outputs** tab.
@@ -96,7 +96,7 @@ To run applications on MATLAB Web App Server, you need to create web apps using 
 1. Look for the key named `MATLABWebAppServerAppsS3Bucket`, and click the corresponding URL listed under value.
 1. In the S3 console, click **apps**.
 1. Click **Upload** > **Add Files** to select and upload web apps (`.ctf` files).
->**NOTE:** If you enable OIDC authentication, you can upload web apps from the apps home page. Any apps you upload via the apps home page are not synchornized with S3 bucket. To enable OIDC authentication, see [Configure OIDC Authentication](#configure-oidc-authentication).
+>**NOTE:** If you enable OIDC authentication, you can upload web apps from the apps home page. Any apps you upload via the apps home page are not synchronized with S3 bucket. To enable OIDC authentication, see [Configure OIDC Authentication](#configure-oidc-authentication).
 
 ## Get Password to EC2 Instance Hosting MATLAB Web App Server
 1. In the AWS management console, select the stack you deployed. 
